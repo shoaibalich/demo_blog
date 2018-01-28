@@ -1,0 +1,51 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Your Inventory
+      </h1>
+      <h2 class="subtitle">
+        You can View, Edit and Delete any vehicle from here
+      </h2>
+    </div>
+  </div>
+</section>
+
+<secion class="section">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Car ID</th>
+						<th>VIN</th>
+						<th>Year</th>
+						<th>Make</th>
+						<th>Model</th>						
+						<th>Price ($)</th>
+						<th>View</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @cars.each do |car| %>
+					<tr>
+						<td><%= car.id %></td>
+						<td><%= car.vin %></td>
+						<td><%= car.year %></td>
+						<td><%= car.make %></td>
+						<td><%= car.model %></td>
+						<td><%= car.price %></td>
+						<td><%= link_to 'View', dealer_car_path(car.dealer_id,car) %></td>
+						<td><%= link_to 'Edit', edit_dealer_car_path(car.dealer_id,car) %></td>
+						<td><%= link_to 'Delete', dealer_car_path(car.dealer_id,car), method: :delete %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</secion>
