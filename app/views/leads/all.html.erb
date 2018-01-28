@@ -1,0 +1,16 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Your Leads
+      </h1>
+      <h2 class="subtitle">
+        You can view, edit and update leads from here
+      </h2>
+    </div>
+  </div>
+</section>
+
+<% @leads.each do |lead| %>
+	<%= lead.name %><br>
+<% end %>

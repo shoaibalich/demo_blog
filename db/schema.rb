@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128071243) do
+ActiveRecord::Schema.define(version: 20180128153030) do
 
   create_table "cars", force: :cascade do |t|
     t.string "vin"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 20180128071243) do
     t.string "dealership_street"
     t.index ["email"], name: "index_dealers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_dealers_on_reset_password_token", unique: true
+  end
+
+  create_table "leads", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.integer "car_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_leads_on_car_id"
   end
 
 end

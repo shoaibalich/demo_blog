@@ -27,6 +27,8 @@
 						<th>View</th>
 						<th>Edit</th>
 						<th>Delete</th>
+						<th>View Leads</th>
+						<th>Add Lead</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -41,6 +43,8 @@
 						<td><%= link_to 'View', dealer_car_path(car.dealer_id,car) %></td>
 						<td><%= link_to 'Edit', edit_dealer_car_path(car.dealer_id,car) %></td>
 						<td><%= link_to 'Delete', dealer_car_path(car.dealer_id,car), method: :delete %></td>
+						<td><%= link_to 'View Leads', dealer_car_leads_path(car.dealer_id,car) %></td>
+						<td><%= link_to 'Add Lead', new_dealer_car_lead_path(car.dealer_id,car) %></td>
 					</tr>
 					<% end %>
 				</tbody>

@@ -1,0 +1,39 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Leads for <%= @car.make %>&nbsp;<% @car.model %>
+      </h1>
+      <h2 class="subtitle">
+        VIN : <%= @car.vin %>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<secion class="section">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @leads.each do |lead| %>
+					<tr>
+						<td><%= lead.name %></td>
+						<td><%= lead.phone %></td>
+						<td><%= lead.email %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</secion>
