@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_type: MyString
+  open: false
+  description: MyText
+  hotness: 1
+  lead: one
+
+two:
+  task_type: MyString
+  open: false
+  description: MyText
+  hotness: 1
+  lead: two

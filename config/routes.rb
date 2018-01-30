@@ -5,9 +5,13 @@ Rails.application.routes.draw do
 
   get 'dealers/:dealer_id/leads', :to => 'leads#all', as: :all_leads
 
+  get 'dealers/:dealer_id/tasks', :to => 'tasks#all', as: :all_tasks
+
   resources :dealers do
   	resources :cars do
-  		resources :leads
+  		resources :leads do
+  			resources :tasks
+  		end
   	end
   end
 

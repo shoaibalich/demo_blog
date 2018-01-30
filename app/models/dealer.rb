@@ -5,4 +5,5 @@ class Dealer < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :cars
   has_many :leads, through: :cars
+  has_many :tasks, through: :leads
 end
