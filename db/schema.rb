@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204142248) do
+ActiveRecord::Schema.define(version: 20180204152749) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "cars", force: :cascade do |t|
     t.string "vin"
@@ -18,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180204142248) do
     t.string "model"
     t.integer "year"
     t.decimal "price"
-    t.integer "dealer_id"
+    t.bigint "dealer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
@@ -36,13 +39,13 @@ ActiveRecord::Schema.define(version: 20180204142248) do
     t.string "exterior_color"
     t.string "interior_color"
     t.string "warranty"
-    t.string "options"
     t.string "safety"
     t.string "power_options"
     t.boolean "disability_equipped"
     t.string "posting_title"
     t.string "vehicle_size"
     t.string "drive_side"
+    t.text "options"
     t.index ["dealer_id"], name: "index_cars_on_dealer_id"
   end
 
@@ -76,7 +79,7 @@ ActiveRecord::Schema.define(version: 20180204142248) do
     t.string "name"
     t.string "phone"
     t.string "email"
-    t.integer "car_id"
+    t.bigint "car_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_leads_on_car_id"
@@ -87,10 +90,13 @@ ActiveRecord::Schema.define(version: 20180204142248) do
     t.boolean "open"
     t.text "description"
     t.integer "hotness"
-    t.integer "lead_id"
+    t.bigint "lead_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lead_id"], name: "index_tasks_on_lead_id"
   end
 
+  add_foreign_key "cars", "dealers"
+  add_foreign_key "leads", "cars"
+  add_foreign_key "tasks", "leads"
 end

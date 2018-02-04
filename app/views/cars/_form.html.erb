@@ -170,6 +170,13 @@
 	<br>
 	<div class="field">
 		<div class="control">
+			<%= f.label :description, "Options (seperated by commas) *", class: 'is-size-5' %>
+			<%= f.input :description, required:true, autofocus:true, input_html: {class: "textarea"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
 			<%= f.label :description, "Description *", class: 'is-size-5' %>
 			<%= f.input :description, required:true, autofocus:true, input_html: {class: "textarea"}, wrapper: false, label: false %>
 		</div>
