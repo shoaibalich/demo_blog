@@ -1,4 +1,4 @@
 class Car < ApplicationRecord
   belongs_to :dealer
-  has_many :leads
+  has_many :leads, dependent: :destroy
 end

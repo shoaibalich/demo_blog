@@ -4,9 +4,28 @@
       <h1 class="title">
         <%= @car.make %>&nbsp;<%= @car.model %>
       </h1>
-      <h2 class="subtitle">
-        VIN : <%= @car.vin %>
-      </h2>
+        <div class="field is-grouped is-grouped-multiline">
+        	<div class="control">
+        	  <div class="tags has-addons">
+        	    <span class="tag is-black is-medium">Price</span>
+        	    <span class="tag is-white is-medium"><%= @car.price %></span>
+        	  </div>
+        	</div>
+
+        	<div class="control">
+        	  <div class="tags has-addons">
+        	    <span class="tag is-black is-medium">VIN</span>
+        	    <span class="tag is-white is-medium"><%= @car.vin %></span>
+        	  </div>
+        	</div>
+
+        	<div class="control">
+        	  <div class="tags has-addons">
+        	    <span class="tag is-black is-medium">Leads</span>
+        	    <span class="tag is-white is-medium"><%= @leads.size %></span>
+        	  </div>
+        	</div>
+        </div>
     </div>
   </div>
 </section>
@@ -38,10 +57,25 @@
 						<td><%= @car.model %></td>
 						<td><%= @car.price %></td>
 						<td><%= link_to 'Edit', edit_dealer_car_path(@car.dealer_id,@car) %></td>
-						<td><%= link_to 'Delete', dealer_car_path(@car.dealer_id,@car), method: :delete %></td>
+						<td><%= link_to 'Delete', dealer_car_path(@car.dealer_id,@car), method: :delete,data: {confirm: "Are you sure?"}  %></td>
 					</tr>
 				</tbody>
 			</table>
+
+			<div id="car">
+				<b><%= @car.id %></b>
+				<br>
+				<i>VIN : <%= @car.vin %></i>
+			</div>
+			
+
+			<!-- Trigger -->
+			<button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#car">
+			    Copy to clipboard
+			</button>
+
+
+
 			</div>
 		</div>
 	</div>

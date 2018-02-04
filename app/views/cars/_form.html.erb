@@ -1,39 +1,185 @@
 <%= simple_form_for(@car, url: dealer_cars_path) do |f| %>
 	<%= f.error_notification %>
-	<div class="field">
-		<div class="control">
-			<%= f.input :vin, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
-		</div>
-	</div>
 
 	<div class="field">
 		<div class="control">
-			<%= f.input :make, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+			<%= f.label :posting_title, "Descriptive Title *", class: 'is-size-5' %>
+			<%= f.input :posting_title, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
 		</div>
 	</div>
-
+	<br>
 	<div class="field">
 		<div class="control">
-			<%= f.input :model, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+			<%= f.label :title_status, "Title Status *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :title_status, :collection => ['Clean', 'Salvage', 'Rebuilt'], label: false, wrapper: false, :selected => ['Clean'], include_blank: false %>
+			</div>
 		</div>
 	</div>
-
+	<br>
 	<div class="field">
 		<div class="control">
-			<%= f.input :year, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+			<%= f.label :condition, "Condition *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :condition, :collection => ['New', 'Certified Pre-Owned', 'Used'], label: false, wrapper: false, :selected => ['New'], include_blank: false %>
+			</div>
 		</div>
 	</div>
-
+	<br>
 	<div class="field">
 		<div class="control">
-			<%= f.input :price, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+			<%= f.label :price, "Price *", class: 'is-size-5' %>
+			<%= f.input :price, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
 		</div>
 	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :odometer, "Odometer Reading *", class: 'is-size-5' %>
+			<%= f.input :odometer, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :make, "Make *", class: 'is-size-5' %>
+			<%= f.input :make, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :model, "Model *", class: 'is-size-5' %>
+			<%= f.input :model, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :sub_model, "Sub Model", class: 'is-size-5' %>
+			<%= f.input :sub_model, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :trim, "Trim", class: 'is-size-5' %>
+			<%= f.input :trim, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :engine, "Engine", class: 'is-size-5' %>
+			<%= f.input :trim, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :cylinders, "Cylinders", class: 'is-size-5' %>
+			<%= f.input :trim, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :year, "Model Year *", class: 'is-size-5' %>
+			<%= f.input :year, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :vin, "VIN *", class: 'is-size-5' %>
+			<%= f.input :vin, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :exterior_color, "Exterior Color *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :exterior_color, :collection => ['Black', 'Blue', 'Brown', 'Green', 'Grey', 'Orange', 'Purple', 'Red', 'Silver', 'White', 'Yellow', 'Custom', 'Other'], label: false, wrapper: false, :selected => ['Other'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :fuel_type, "Fuel Type *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :fuel_type, :collection => ['Gasoline', 'Diesel', 'Electric', 'Hybrid', 'Other'], label: false, wrapper: false, :selected => ['Gasoline'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :transmission, "Transmission *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :transmission, :collection => ['Manual', 'Automatic'], label: false, wrapper: false, :selected => ['Automatic'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :drive_type, "Drive Type *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :drive_type, :collection => ['FWD', 'RWD', 'AWD'], label: false, wrapper: false, :selected => ['FWD'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :drive_side, "Drive Side *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :drive_side, :collection => ['LHD', 'RHD'], label: false, wrapper: false, :selected => ['LHD'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :options, "Options", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :options, :collection => ['A', 'B', 'C'], label: false, wrapper: false, :selected => ['LHD'], include_blank: false, multiple: true %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :body_type, "Body Type *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :body_type, :collection => ['Cab & Chassis', 'Convertible', 'Coupe', 'Crew Cab Pickup', 'Extended Cab Pickup', 'Extended Crew Cab Pickup', 'Extended Passenger Van', 'Fastback', 'Hatchback', 'Hearse', 'Limousine', 'Minivan', 'Sedan', 'Standard Cab Pickup', 'Standard Passenger Van', 'SUV', 'Van Camper', 'Wagon', 'Offroad', 'Other'], label: false, wrapper: false, :selected => ['FWD'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :vehicle_size, "Vehicle Size", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :vehicle_size, :collection => ['Compact', 'Sub-Compact', 'Full Size', 'Mid Size', '-'], label: false, wrapper: false, :selected => ['-'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :description, "Description *", class: 'is-size-5' %>
+			<%= f.input :description, required:true, autofocus:true, input_html: {class: "textarea"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
 	
 	<div class="field">
-		<div class="control">
-			<%= f.button :submit, class: "button is-primary" %>
-		</div>
+	  <div class="control">
+	      <%= f.button :submit, "Add Inventory", class: "button is-info is-medium" %>
+	  </div>
 	</div>
 	
 <% end %>

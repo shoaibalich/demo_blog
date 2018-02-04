@@ -2,21 +2,46 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Add New Car
+        Add Inventory
       </h1>
-      <h2 class="subtitle">
-        Please fill in the required information correctly
-      </h2>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- <section class="section">
 	<div class="container">
 		<div class="columns is-centered">
-			<div class="column is-4">
-				<%= render 'form', car: @car %>
+			<div class="column is-6">
+				<% #render 'form', car: @car %>
 			</div>
 		</div>
 	</div>
+</section> -->
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title is-size-4 has-text-weight-normal">
+              Describe Vehicle
+            </p>
+            <span class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fa fa-car" aria-hidden="true"></i>
+              </span>
+            </span>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <%= render 'form', car: @car %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+

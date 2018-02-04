@@ -4,9 +4,28 @@
       <h1 class="title">
         Your Tasks
       </h1>
-      <h2 class="subtitle">
-        You can view, edit and update tasks from here
-      </h2>
+      <div class="field is-grouped is-grouped-multiline">
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-white is-medium">all</span>
+              <span class="tag is-black is-medium"><%= @tasks.count %></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-white is-medium">new</span>
+              <span class="tag is-black is-medium"><%= @tasks.count %></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-white is-medium">completed</span>
+              <span class="tag is-black is-medium"><%= @tasks.count %></span>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
 </section>
@@ -19,14 +38,18 @@
         <thead>
           <tr>
             <th>Lead</th>
-            <th>Task Type</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Type</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
           <tr>
-            <td><%= task.lead_id %></td>
+            <td><%= task.lead.name %></td>
+            <td><%= task.lead.email %></td>
+            <td><%= task.lead.phone %></td>
             <td><%= task.task_type %></td>
             <td><%= task.description %></td>
           </tr>

@@ -5,9 +5,28 @@
       <h1 class="title">
         Dashboard
       </h1>
-      <h2 class="subtitle">
-        A complete overview of your inventory, leads and tasks
-      </h2>
+      <div class="field is-grouped is-grouped-multiline">
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-white is-medium">inventory</span>
+            <span class="tag is-black is-medium"><%= @inventory_count %></span>
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-white is-medium">leads</span>
+            <span class="tag is-black is-medium"><%= @lead_count %></span>
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-white is-medium">tasks</span>
+            <span class="tag is-black is-medium"><%= @task_count %></span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

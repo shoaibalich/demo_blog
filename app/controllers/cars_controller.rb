@@ -1,5 +1,7 @@
 class CarsController < ApplicationController
 	
+	before_action :authenticate_dealer!
+	
 	def index
 		@cars = current_dealer.cars
 	end
@@ -35,6 +37,7 @@ class CarsController < ApplicationController
 	def show
 		@dealer = current_dealer
 		@car = current_dealer.cars.find(params[:id])
+		@leads = @car.leads
 	end
 
 	def create

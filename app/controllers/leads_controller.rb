@@ -1,5 +1,7 @@
 class LeadsController < ApplicationController
 
+	before_action :authenticate_dealer!
+
 	def all
 		@dealer = current_dealer
 		@leads = current_dealer.leads

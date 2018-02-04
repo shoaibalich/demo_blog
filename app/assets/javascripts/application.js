@@ -13,3 +13,19 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require clipboard
+
+$(document).ready(function(){  
+  
+  var clipboard = new Clipboard('.clipboard-btn', {
+    text: function() {
+        var htmlBlock = document.querySelector('#car');
+        return htmlBlock.innerHTML;
+    }
+});
+	
+});
+
+

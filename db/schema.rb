@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130175307) do
+ActiveRecord::Schema.define(version: 20180204142248) do
 
   create_table "cars", force: :cascade do |t|
     t.string "vin"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(version: 20180130175307) do
     t.integer "dealer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.float "odometer"
+    t.string "condition"
+    t.integer "cylinders"
+    t.string "drive_type"
+    t.string "fuel_type"
+    t.string "posting_language"
+    t.string "title_status"
+    t.string "transmission"
+    t.string "trim"
+    t.string "engine"
+    t.string "sub_model"
+    t.string "exterior_color"
+    t.string "interior_color"
+    t.string "warranty"
+    t.string "options"
+    t.string "safety"
+    t.string "power_options"
+    t.boolean "disability_equipped"
+    t.string "posting_title"
+    t.string "vehicle_size"
+    t.string "drive_side"
     t.index ["dealer_id"], name: "index_cars_on_dealer_id"
   end
 

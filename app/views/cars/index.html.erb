@@ -2,11 +2,30 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Your Inventory
+        Inventory
       </h1>
-      <h2 class="subtitle">
-        You can View, Edit and Delete any vehicle from here
-      </h2>
+        <div class="field is-grouped is-grouped-multiline">
+        	<div class="control">
+        	  <div class="tags has-addons">
+        	    <span class="tag is-white is-medium">all</span>
+        	    <span class="tag is-black is-medium"><%= @cars.count %></span>
+        	  </div>
+        	</div>
+
+        	<div class="control">
+        	  <div class="tags has-addons">
+        	    <span class="tag is-white is-medium">new</span>
+        	    <span class="tag is-black is-medium"><%= @cars.count %></span>
+        	  </div>
+        	</div>
+
+        	<div class="control">
+        	  <div class="tags has-addons">
+        	    <span class="tag is-white is-medium">sold</span>
+        	    <span class="tag is-black is-medium"><%= @cars.count %></span>
+        	  </div>
+        	</div>
+        </div>
     </div>
   </div>
 </section>
@@ -42,7 +61,7 @@
 						<td><%= car.price %></td>
 						<td><%= link_to 'View', dealer_car_path(car.dealer_id,car) %></td>
 						<td><%= link_to 'Edit', edit_dealer_car_path(car.dealer_id,car) %></td>
-						<td><%= link_to 'Delete', dealer_car_path(car.dealer_id,car), method: :delete %></td>
+						<td><%= link_to 'Delete', dealer_car_path(car.dealer_id,car.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
 						<td><%= link_to 'View Leads', dealer_car_leads_path(car.dealer_id,car) %></td>
 						<td><%= link_to 'Add Lead', new_dealer_car_lead_path(car.dealer_id,car) %></td>
 					</tr>
