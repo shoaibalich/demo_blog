@@ -24,48 +24,49 @@
     <% end %>
 
     <!-- Navbar -->
-  	<nav class="navbar is-info" role="navigation" aria-label="main navigation">
-  	  <div class="navbar-brand">
-  	    <!-- navbar items, navbar burger... -->
-  	    <%= link_to 'pipewheel', root_path, class:'navbar-item is-size-4' %>
-  	  </div>
-  	  <div class="navbar-menu">
-  	 	<!-- If Dealer has signed in -->
-  	    <% if dealer_signed_in? %>
-  	    <div class="navbar-start">
-			     <%= link_to 'Inventory', dealer_cars_path(current_dealer), class:'navbar-item' %>
-           <%= link_to 'Leads', all_leads_path(current_dealer.id), class:'navbar-item' %>
-           <%= link_to 'Tasks', all_tasks_path(current_dealer.id), class:'navbar-item' %>
-  	    </div>
-  	    <div class="navbar-end">
-  	    	<div class="navbar-item">
-  	    	  <div class="field is-grouped">
-  	    	    <p class="control">
-  	    	      <%= link_to 'Add Inventory', new_dealer_car_path(current_dealer.id), class:'navbar-item button' %>
-  	    	    </p>
-  	    	    <p class="control">
-  	    	      <%= link_to 'Sign Out', destroy_dealer_session_path, method: :delete, class:'button is-dark' %>
-  	    	    </p>
-  	    	  </div>
-  	    	</div>
-  	    </div>
-  	    <% else %>
-  	    <div class="navbar-end">
-  	    	<div class="navbar-item">
-  	    	  <div class="field is-grouped">
-  	    	    <p class="control">
-  	    	      <%= link_to 'Sign Up Today', new_dealer_registration_path, class:'navbar-item button is-white' %>
-  	    	    </p>
-  	    	    <p class="control">
-  	    	      <%= link_to 'Sign In', new_dealer_session_path, class:'navbar-item button is-dark' %>
-  	    	    </p>
-  	    	  </div>
-  	    	</div>
-  	    </div>
-  	    <% end %>
-  	  </div>
-  	</nav>
-
+        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <!-- navbar items, navbar burger... -->
+            <%= link_to 'pipewheel', root_path, class:'navbar-item is-size-4' %>
+          </div>
+          <div class="navbar-menu">
+          <!-- If Dealer has signed in -->
+            <% if dealer_signed_in? %>
+            <div class="navbar-start">
+               <%= link_to 'Inventory', dealer_cars_path(current_dealer), class:'navbar-item' %>
+               <%= link_to 'Leads', all_leads_path(current_dealer.id), class:'navbar-item' %>
+               <%= link_to 'Tasks', all_tasks_path(current_dealer.id), class:'navbar-item' %>
+            </div>
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="field is-grouped">
+                  <p class="control">
+                    <%= link_to 'Add Inventory', new_dealer_car_path(current_dealer.id), class:'navbar-item button' %>
+                  </p>
+                  <p class="control">
+                    <%= link_to 'Sign Out', destroy_dealer_session_path, method: :delete, class:'button is-dark' %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% else %>
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="field is-grouped">
+                  <p class="control">
+                    <%= link_to 'Sign Up Today', new_dealer_registration_path, class:'navbar-item button is-white' %>
+                  </p>
+                  <p class="control">
+                    <%= link_to 'Sign In', new_dealer_session_path, class:'navbar-item button is-dark' %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </nav>
+    
     <%= yield %>
+
   </body>
 </html>

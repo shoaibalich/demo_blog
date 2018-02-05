@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204152749) do
+ActiveRecord::Schema.define(version: 20180205133802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,13 +39,19 @@ ActiveRecord::Schema.define(version: 20180204152749) do
     t.string "exterior_color"
     t.string "interior_color"
     t.string "warranty"
-    t.string "safety"
     t.string "power_options"
     t.boolean "disability_equipped"
     t.string "posting_title"
     t.string "vehicle_size"
     t.string "drive_side"
     t.text "options"
+    t.text "safety"
+    t.string "custom_exterior"
+    t.string "custom_interior"
+    t.boolean "carfax_available"
+    t.string "body_type"
+    t.boolean "sold"
+    t.integer "stock_number"
     t.index ["dealer_id"], name: "index_cars_on_dealer_id"
   end
 
@@ -89,10 +95,10 @@ ActiveRecord::Schema.define(version: 20180204152749) do
     t.string "task_type"
     t.boolean "open"
     t.text "description"
-    t.integer "hotness"
     t.bigint "lead_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "task_name"
     t.index ["lead_id"], name: "index_tasks_on_lead_id"
   end
 

@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
 	
-	before_action :authenticate_dealer!
+	before_action :authenticate_dealer!, except: [:index, :show]
 	
 	def index
 		@cars = current_dealer.cars
@@ -35,9 +35,10 @@ class CarsController < ApplicationController
 	end
 
 	def show
-		@dealer = current_dealer
-		@car = current_dealer.cars.find(params[:id])
+		@dealer = Dealer.find(params[:dealer_id])
+		@car = @dealer.cars.find(params[:id])
 		@leads = @car.leads
+		@lead = @car.leads.build
 	end
 
 	def create
@@ -61,6 +62,6 @@ class CarsController < ApplicationController
 	private
 
 	def new_car_params
-		params.require(:car).permit(:vin,:make,:model,:year,:price)
+		params.require(:car).permit(:posting_title,:title_status,:carfax_available,:condition,:price,:odometer,:make,:model,:sub_model,:trim,:engine,:cylinders,:year,:vin,:exterior_color,:custom_exterior,:interior_color,:custom_interior,:fuel_type,:transmission,:drive_type,:drive_side,:body_type,:vehicle_size,:options,:safety,:description,:warranty)
 	end
 end

@@ -19,6 +19,13 @@
 	<br>
 	<div class="field">
 		<div class="control">
+			<%= f.label :carfax_available, "CarFax Available? *", class: 'is-size-5'%>
+			<%= f.input :carfax_available, required:true, input_html: {class: "checkbox"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
 			<%= f.label :condition, "Condition *", class: 'is-size-5'%>
 			<div class="select">
 			<%= f.input :condition, :collection => ['New', 'Certified Pre-Owned', 'Used'], label: false, wrapper: false, :selected => ['New'], include_blank: false %>
@@ -71,7 +78,7 @@
 	<div class="field">
 		<div class="control">
 			<%= f.label :engine, "Engine", class: 'is-size-5' %>
-			<%= f.input :trim, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
+			<%= f.input :trim, input_html: {class: "input"}, wrapper: false, label: false %>
 		</div>
 	</div>
 	<br>
@@ -100,8 +107,31 @@
 		<div class="control">
 			<%= f.label :exterior_color, "Exterior Color *", class: 'is-size-5'%>
 			<div class="select">
-			<%= f.input :exterior_color, :collection => ['Black', 'Blue', 'Brown', 'Green', 'Grey', 'Orange', 'Purple', 'Red', 'Silver', 'White', 'Yellow', 'Custom', 'Other'], label: false, wrapper: false, :selected => ['Other'], include_blank: false %>
+			<%= f.input :exterior_color, :collection => ['Black', 'Blue', 'Brown', 'Green', 'Grey', 'Orange', 'Purple', 'Red', 'Silver', 'White', 'Yellow', 'Other'], label: false, wrapper: false, :selected => ['Other'], include_blank: false %>
 			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :custom_exterior, "Custom Exterior Color (if applicable)", class: 'is-size-5' %>
+			<%= f.input :custom_exterior, input_html: {class: "input"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :interior_color, "Interior Color", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :interior_color, :collection => ['Black', 'Blue', 'Brown', 'Green', 'Grey', 'Orange', 'Purple', 'Red', 'Silver', 'White', 'Yellow', 'Other'], label: false, wrapper: false, :selected => ['Other'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :custom_interior, "Custom Interior Color (if applicable)", class: 'is-size-5' %>
+			<%= f.input :custom_interior, input_html: {class: "input"}, wrapper: false, label: false %>
 		</div>
 	</div>
 	<br>
@@ -143,15 +173,6 @@
 	<br>
 	<div class="field">
 		<div class="control">
-			<%= f.label :options, "Options", class: 'is-size-5'%>
-			<div class="select">
-			<%= f.input :options, :collection => ['A', 'B', 'C'], label: false, wrapper: false, :selected => ['LHD'], include_blank: false, multiple: true %>
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="field">
-		<div class="control">
 			<%= f.label :body_type, "Body Type *", class: 'is-size-5'%>
 			<div class="select">
 			<%= f.input :body_type, :collection => ['Cab & Chassis', 'Convertible', 'Coupe', 'Crew Cab Pickup', 'Extended Cab Pickup', 'Extended Crew Cab Pickup', 'Extended Passenger Van', 'Fastback', 'Hatchback', 'Hearse', 'Limousine', 'Minivan', 'Sedan', 'Standard Cab Pickup', 'Standard Passenger Van', 'SUV', 'Van Camper', 'Wagon', 'Offroad', 'Other'], label: false, wrapper: false, :selected => ['FWD'], include_blank: false %>
@@ -170,8 +191,15 @@
 	<br>
 	<div class="field">
 		<div class="control">
-			<%= f.label :description, "Options (seperated by commas) *", class: 'is-size-5' %>
-			<%= f.input :description, required:true, autofocus:true, input_html: {class: "textarea"}, wrapper: false, label: false %>
+			<%= f.label :options, "Options (seperated by commas) *", class: 'is-size-5' %>
+			<%= f.input :options, required:true, autofocus:true, input_html: {class: "textarea"}, wrapper: false, label: false %>
+		</div>
+	</div>
+	<br>
+	<div class="field">
+		<div class="control">
+			<%= f.label :safety, "Safety Features", class: 'is-size-5' %>
+			<%= f.input :safety, input_html: {class: "textarea"}, wrapper: false, label: false %>
 		</div>
 	</div>
 	<br>
@@ -182,7 +210,15 @@
 		</div>
 	</div>
 	<br>
-	
+	<div class="field">
+		<div class="control">
+			<%= f.label :warranty, "Warranty *", class: 'is-size-5'%>
+			<div class="select">
+			<%= f.input :warranty, :collection => ['Vehicle has existing warranty', 'Vehicle does not have existing warranty', 'Unspecified', 'Contact Dealer'], label: false, wrapper: false, :selected => ['Contact Dealer'], include_blank: false %>
+			</div>
+		</div>
+	</div>
+	<br>
 	<div class="field">
 	  <div class="control">
 	      <%= f.button :submit, "Add Inventory", class: "button is-info is-medium" %>

@@ -1,4 +1,4 @@
-<%= simple_form_for(@lead, url: dealer_car_leads_path) do |f| %>
+<%= simple_form_for(@lead, url: dealer_car_leads_path(dealer_id, car_id,)) do |f| %>
 	<%= f.error_notification %>
 	<div class="field">
 		<div class="control">

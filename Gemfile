@@ -36,6 +36,7 @@ gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.4'
 gem 'clipboard-rails', '~> 1.7', '>= 1.7.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'carrierwave', '~> 1.0'
 
 group :production do
   # Use PostgreSQL for Active Record
