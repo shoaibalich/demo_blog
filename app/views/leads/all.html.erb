@@ -41,6 +41,8 @@
             <th>Phone</th>
             <th>Email</th>
             <th>Add Task</th>
+            <th>View Tasks</th>
+            <th>Delete Lead</th>
           </tr>
         </thead>
         <tbody>
@@ -50,6 +52,8 @@
             <td><%= lead.phone %></td>
             <td><%= lead.email %></td>
             <td><%= link_to 'Add Task', new_dealer_car_lead_task_path(@dealer.id,lead.car_id,lead.id) %></td>
+            <td><%= link_to 'View Tasks', dealer_car_lead_tasks_path(@dealer.id,lead.car_id,lead.id) %></td>
+            <td><%= link_to 'Delete Lead', dealer_car_lead_path(@dealer.id,lead.car_id,lead.id), method: :delete %></td>
           </tr>
           <% end %>
         </tbody>

@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="columns is-centered">
 			<div class="column is-4">
-				<%= render 'new_form', lead: @lead, task: @task %>
+				<%= render 'new_form', lead: @lead, dealer_id:current_dealer.id, car_id: @car.id %>
 			</div>
 		</div>
 	</div>

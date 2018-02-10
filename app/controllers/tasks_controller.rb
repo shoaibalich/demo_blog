@@ -8,6 +8,13 @@ def all
 	@tasks = @dealer.tasks
 end
 
+def index
+	@dealer = current_dealer
+	@car = current_dealer.cars.find(params[:car_id])
+	@lead = @car.leads.find(params[:lead_id])
+	@tasks = @lead.tasks
+end
+
 
 def show
 	@dealer = current_dealer

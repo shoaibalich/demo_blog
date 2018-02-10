@@ -19,6 +19,7 @@ class LeadsController < ApplicationController
 		# @lead = @car.leads.build
 		# @lead.tasks.new
 		@lead = Lead.new
+		@car = current_dealer.cars.find(params[:car_id])
 		@task = @lead.tasks.build
 	end
 
@@ -37,6 +38,14 @@ class LeadsController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def destroy
+		@dealer = current_dealer
+		@car = current_dealer.cars.find(params[:car_id])
+		@lead = @car.leads.find(params[:id])
+		@lead.destroy
+		redirect_to all_leads_path
 	end
 
 	private
