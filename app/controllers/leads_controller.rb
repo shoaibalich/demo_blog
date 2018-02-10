@@ -14,9 +14,12 @@ class LeadsController < ApplicationController
 	end
 
 	def new
-		@dealer = current_dealer
-		@car = current_dealer.cars.find(params[:car_id])
-		@lead = @car.leads.build
+		# @dealer = current_dealer
+		# @car = current_dealer.cars.find(params[:car_id])
+		# @lead = @car.leads.build
+		# @lead.tasks.new
+		@lead = Lead.new
+		@task = @lead.tasks.build
 	end
 
 	def show
@@ -39,7 +42,7 @@ class LeadsController < ApplicationController
 	private
 
 	def new_lead_params
-		params.require(:lead).permit(:name,:phone,:email)
+		params.require(:lead).permit(:name,:phone,:email, tasks_attributes: [:task_type])
 	end
 
 

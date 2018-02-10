@@ -46,8 +46,9 @@
 					<div class="box">
 						<h4 class="title is-4">Make Enquiry</h4>
 						<p>We respect your privacy. Your information is sent only to the dealership, directly.</p>
+						
 						<br>
-						<%= render '/leads/new_form', lead: @lead, car_id: @car.id, dealer_id: current_dealer.id %>
+						<%= render '/leads/new_form', lead: @lead, car_id: @car.id, dealer_id: current_dealer.id, task: @task %>
 					</div>
 				<!-- if car sold -->
 				<% else %>

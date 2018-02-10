@@ -39,6 +39,7 @@ class CarsController < ApplicationController
 		@car = @dealer.cars.find(params[:id])
 		@leads = @car.leads
 		@lead = @car.leads.build
+		@task = @lead.tasks.build
 	end
 
 	def create
