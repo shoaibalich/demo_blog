@@ -51,7 +51,7 @@ class LeadsController < ApplicationController
 	private
 
 	def new_lead_params
-		params.require(:lead).permit(:name,:phone,:email, tasks_attributes: [:task_type])
+		params.require(:lead).permit(:name,:phone,:email, tasks_attributes: [:task_type, :description])
 	end
 
 

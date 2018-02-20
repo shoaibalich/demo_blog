@@ -24,7 +24,7 @@
     <% end %>
 
     <!-- Navbar -->
-        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <!-- navbar items, navbar burger... -->
             <%= link_to 'pipewheel', root_path, class:'navbar-item is-size-4' %>
@@ -66,7 +66,18 @@
           </div>
         </nav>
     
-    <%= yield %>
+      <%= yield %>
+    
+<!--     <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            Want to give us some feedback? Email us at feedback@getpipewheel.com <br>
+            PipeWheel is proudly built for you by &copy;SeaHouse Labs Pvt Ltd <i class="fa fa-heart"></i>
+          </p>
+        </div>
+      </div>
+    </footer> -->
 
   </body>
 </html>

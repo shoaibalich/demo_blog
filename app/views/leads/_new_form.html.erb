@@ -2,33 +2,50 @@
 	<%= f.error_notification %>
 	<div class="field">
 		<div class="control">
-			<%= f.input :name, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+			<%= f.label :name, "Name *", class: 'is-size-5'  %>
+			<%= f.input :name, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
 		</div>
 	</div>
 
 	<div class="field">
 		<div class="control">
-			<%= f.input :phone, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+			<%= f.label :phone, "Phone *", class: 'is-size-5'  %>
+			<%= f.input :phone, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
 		</div>
 	</div>
 
 	<div class="field">
 			<div class="control">
-				<%= f.input :email, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+				<%= f.label :email, "Email *", class: 'is-size-5'  %>
+				<%= f.input :email, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label: false %>
 			</div>
 		</div>
 
 	<%= f.simple_fields_for :tasks do |p| %>
 		<div class="field">
-				<div class="control">
-					<%= p.input :task_type, required:true, autofocus:true, input_html: {class: "input"}, wrapper: false, label_html: {class: "label"} %>
+			<div class="control">
+				<%= p.label :task_type, "Request Type", class: 'is-size-5' %>
+				<br>
+				<div class="select">
+				<%= p.input :task_type, :collection => ['Call Back', 'View Car', 'Make Offer', 'Schedule Test Drive'], label: false, wrapper: false, :selected => ['Call Back'], include_blank: false %>
 				</div>
-			</div
+			</div>
+		</div>
+		<div class="field">
+			<div class="control">
+				<%= p.label :description, "Optional Message", class: 'is-size-5' %>
+				<br>
+				<%= p.input :description, required:true, autofocus:true, input_html: {class: "textarea"}, wrapper: false, label: false %>
+			</div>
+		</div>
 	<% end %>
+
+	<br>
+	
 	
 	<div class="field">
 		<div class="control">
-			<%= f.button :submit, class: "button is-primary" %>
+			<%= f.button :submit, "Submit", class: "button is-primary is-medium" %>
 		</div>
 	</div>
 	

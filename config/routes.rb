@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get 'dealers/:dealer_id/tasks', :to => 'tasks#all', as: :all_tasks
 
+  get 'dealers/:dealer_id/tasks/new', :to => 'tasks#new_universal_task', as: :new_universal_task
+
+  post 'dealers/:dealer_id/tasks/new', :to => 'tasks#create_universal_task', as: :create_universal_task
+
   resources :dealers do
   	resources :cars do
   		resources :leads do

@@ -1,62 +1,99 @@
-<section class="hero is-info">
-  <div class="hero-body">
+  <section class="section">
     <div class="container">
-      <h1 class="title">
-        Your Tasks
-      </h1>
-      <div class="field is-grouped is-grouped-multiline">
-          <div class="control">
-            <div class="tags has-addons">
-              <span class="tag is-white is-medium">all</span>
-              <span class="tag is-black is-medium"><%= @tasks.count %></span>
+      <div class="columns">
+        <div class="column">
+
+         
+
+          <div class="field">
+            <%= link_to 'Add New Task', new_universal_task_path(current_dealer.id), class: 'button is-primary has-text-weight-semibold' %>
+          </div>
+
+          <div class="field">
+            <label class="label is-size-6 has-text-grey">Show Tasks For</label>
+            <div class="control">
+              <div class="select is-dark">
+                <select>
+                  <option value="today">Today</option>
+                  <option value="tomorrow">Tomorrow</option>
+                  <option value="this_week">This Week</option>
+                  <option value="this_month">This Month</option>
+                  <option value="all_time">Since Beginning</option>
+                </select>
+              </div>
             </div>
           </div>
 
-          <div class="control">
-            <div class="tags has-addons">
-              <span class="tag is-white is-medium">new</span>
-              <span class="tag is-black is-medium"><%= @tasks.count %></span>
+
+          <div class="field">
+            <label class="label is-size-6 has-text-grey">Sort By</label>
+            <div class="control">
+              <div class="select is-dark">
+                <select>
+                  <option value="freshness">Freshness</option>
+                  <option value="priority">Priority</option>
+                </select>
+              </div>
             </div>
           </div>
 
-          <div class="control">
-            <div class="tags has-addons">
-              <span class="tag is-white is-medium">completed</span>
-              <span class="tag is-black is-medium"><%= @tasks.count %></span>
+          <div class="field">
+            <label class="label is-size-6 has-text-grey">Filter By</label>
+            <div class="control">
+              <div class="select is-dark">
+                <select>
+                  <option value="all_types">All Types</option>
+                  <option value="call_type">Call</option>
+                  <option value="email_type">Email</option>
+                  <option value="offer_type">Offer</option>
+                  <option value="test_drive_type">Test Drive</option>
+                  <option value="visit_type">Visit Dealership</option>
+                </select>
+              </div>
             </div>
+          </div>
+          </div>
+
+          <div class="column">
+            <secion class="section">
+              <div class="container">
+                <div class="columns is-centered">
+                  <div class="column">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Lead</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Optional Message</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @tasks.each do |task| %>
+                      <tr class="card">
+                        <td><%= task.lead.name %></td>
+                        <td><%= task.lead.email %></td>
+                        <td><%= task.lead.phone %></td>
+                        <td><%= task.task_type %></td>
+                        <td>
+                          <% if task.open? %>
+                            Open
+                          <% else %>
+                            Closed
+                          <% end %>
+                        </td>
+                        <td><%= task.description %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </secion>
           </div>
       </div>
     </div>
-  </div>
-</section>
-
-<secion class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Lead</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @tasks.each do |task| %>
-          <tr>
-            <td><%= task.lead.name %></td>
-            <td><%= task.lead.email %></td>
-            <td><%= task.lead.phone %></td>
-            <td><%= task.task_type %></td>
-            <td><%= task.description %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      </div>
-    </div>
-  </div>
-</secion>
+  </section>

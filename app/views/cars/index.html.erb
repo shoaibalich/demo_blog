@@ -1,74 +1,130 @@
-<section class="hero is-info">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Inventory
-      </h1>
-        <div class="field is-grouped is-grouped-multiline">
-        	<div class="control">
-        	  <div class="tags has-addons">
-        	    <span class="tag is-white is-medium">all</span>
-        	    <span class="tag is-black is-medium"><%= @cars.count %></span>
-        	  </div>
-        	</div>
-
-        	<div class="control">
-        	  <div class="tags has-addons">
-        	    <span class="tag is-white is-medium">new</span>
-        	    <span class="tag is-black is-medium"><%= @cars.count %></span>
-        	  </div>
-        	</div>
-
-        	<div class="control">
-        	  <div class="tags has-addons">
-        	    <span class="tag is-white is-medium">sold</span>
-        	    <span class="tag is-black is-medium"><%= @cars.count %></span>
-        	  </div>
-        	</div>
-        </div>
-    </div>
-  </div>
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="column">
+				<div class="level">
+					<div class="level-left">
+						<div class="level-item">
+							<div class="field">
+							  <%= link_to 'Add New Inventory', new_dealer_car_path(current_dealer.id), class: 'button is-primary has-text-weight-semibold' %>
+							</div>
+						</div>
+						<div class="level-item">
+							<div class="control">
+							  <div class="select is-dark">
+							    <select>
+							      <option value="today">Today</option>
+							      <option value="tomorrow">Tomorrow</option>
+							      <option value="this_week">This Week</option>
+							      <option value="this_month">This Month</option>
+							      <option value="all_time">Since Beginning</option>
+							    </select>
+							  </div>
+							</div>
+						</div>
+						<div class="level-item">
+							<div class="control">
+							  <div class="select is-dark">
+							    <select>
+							      <option value="today">Today</option>
+							      <option value="tomorrow">Tomorrow</option>
+							      <option value="this_week">This Week</option>
+							      <option value="this_month">This Month</option>
+							      <option value="all_time">Since Beginning</option>
+							    </select>
+							  </div>
+							</div>
+						</div>
+						<div class="level-item">
+							<div class="control">
+							  <div class="select is-dark">
+							    <select>
+							      <option value="today">Today</option>
+							      <option value="tomorrow">Tomorrow</option>
+							      <option value="this_week">This Week</option>
+							      <option value="this_month">This Month</option>
+							      <option value="all_time">Since Beginning</option>
+							    </select>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+					<div class="field">
+					  <p class="control has-icons-left">
+					    <input class="input is-rounded" type="text" placeholder="Search inventory ...">
+					    <span class="icon is-small is-left">
+					      <i class="fa fa-search"></i>
+					    </span>
+					  </p>
+					</div>
+			</div>
+		</div>	
+	</div>
+	<br>
+	<br>
+	<div class="container">
+		<div class="columns">
+			<div class="column">
+				<table class="table is-striped is-bordered is-fullwidth">
+					<thead>
+						<tr>
+							<th class="has-text-weight-normal has-text-centered">ID</th>
+							<th class="has-text-weight-normal has-text-centered">Status</th>
+							<th class="has-text-weight-normal has-text-centered">VIN</th>
+							<th class="has-text-weight-normal has-text-centered">Posting Title</th>
+							<th class="has-text-weight-normal has-text-centered">Price</th>
+							<th colspan="2" class="has-text-weight-normal has-text-centered">Leads</th>
+							<th colspan="3" class="has-text-weight-normal has-text-centered">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @cars.each do |car| %>
+							<tr>
+								<td class="has-text-weight-normal has-text-centered">
+									<%= car.id %>
+								</td>
+								<td class="has-text-weight-semibold has-text-centered">
+									<% if car.sold? %>
+										<span class="tag is-warning is-medium">Sold</span>
+									<% else %>
+										<span class="tag is-danger is-medium">Unsold</span>
+									<% end %>
+								</td>
+								<td class="has-text-weight-normal has-text-centered">
+									<%= car.vin %>
+								</td>
+								<td class="has-text-weight-normal has-text-centered">
+									<%= link_to car.posting_title, dealer_car_path(car.dealer_id,car) %>
+								</td>
+								<td class="has-text-weight-semibold has-text-centered">
+									<span class="tag is-success is-medium">
+										<%= car.price %>
+									</span>
+								</td>
+								<td class="has-text-weight-normal has-text-centered">
+									<%= link_to car.leads.count, dealer_car_leads_path(car.dealer_id,car), class:'button -outlined' %>
+								</td>
+								<td>
+									<%= link_to 'Add Lead', new_dealer_car_lead_path(car.dealer_id,car), class:'button is-outlined'%>
+								</td>
+								<td>
+									<%= link_to 'View Listings', new_dealer_car_lead_path(car.dealer_id,car), class:'button is-outlined'%>
+								</td>
+								<td>
+									<%= link_to 'Edit', edit_dealer_car_path(car.dealer_id,car), class:'button is-outlined'%>
+								</td>
+								<td>
+									<%= link_to 'Delete', dealer_car_path(car.dealer_id,car.id), method: :delete, data: {confirm: "Are you sure?"}, class:'button is-outlined is-danger' %>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>	
+	</div>
 </section>
 
-<secion class="section">
-	<div class="container">
-		<div class="columns is-centered">
-			<div class="column">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Car ID</th>
-						<th>VIN</th>
-						<th>Year</th>
-						<th>Make</th>
-						<th>Model</th>						
-						<th>Price ($)</th>
-						<th>View</th>
-						<th>Edit</th>
-						<th>Delete</th>
-						<th>View Leads</th>
-						<th>Add Lead</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @cars.each do |car| %>
-					<tr>
-						<td><%= car.id %></td>
-						<td><%= car.vin %></td>
-						<td><%= car.year %></td>
-						<td><%= car.make %></td>
-						<td><%= car.model %></td>
-						<td><%= car.price %></td>
-						<td><%= link_to 'View', dealer_car_path(car.dealer_id,car) %></td>
-						<td><%= link_to 'Edit', edit_dealer_car_path(car.dealer_id,car) %></td>
-						<td><%= link_to 'Delete', dealer_car_path(car.dealer_id,car.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
-						<td><%= link_to 'View Leads', dealer_car_leads_path(car.dealer_id,car) %></td>
-						<td><%= link_to 'Add Lead', new_dealer_car_lead_path(car.dealer_id,car) %></td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-			</div>
-		</div>
-	</div>
-</secion>

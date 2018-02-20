@@ -15,14 +15,17 @@
  */
 
 
-$primary: #20bf6b;
-$info: #0652DD;
+$primary: #0652DD;
 $warning: #fed330;
+$success: #05c46b;
+$danger: #ff5252;
 
 @import 'bulma';
 
+
 body {
 	font-family: 'Source Sans Pro', sans-serif;
+	min-height: 100%;
 }
 
 .navbar-brand {
